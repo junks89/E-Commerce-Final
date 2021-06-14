@@ -25,9 +25,6 @@ public class JWTAuthenticationVerficationFilter extends BasicAuthenticationFilte
         super(authManager);
     }
 
-    /*
-    Overridden method - doFilterInternal()- This method is used when we have multiple roles, and a policy for RBAC.
-    * */
     @Override
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
             throws IOException, ServletException {
@@ -44,9 +41,6 @@ public class JWTAuthenticationVerficationFilter extends BasicAuthenticationFilte
         chain.doFilter(req, res);
     }
 
-    /*
-    Custom method - getAuthentication() - It validates the token read from the Authorization header.
-    * */
     private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest req) {
         String token = req.getHeader(SecurityConstants.HEADER_STRING);
         if (token != null) {

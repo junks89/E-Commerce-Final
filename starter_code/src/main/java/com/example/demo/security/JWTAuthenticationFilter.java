@@ -29,10 +29,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         this.authenticationManager = authenticationManager;
     }
 
-    /*
-    attemptAuthentication() -
-     It performs actual authentication by parsing (also called filtering) the user credentials.
-    * */
     @Override
     public Authentication attemptAuthentication(HttpServletRequest req,
                                                 HttpServletResponse res) throws AuthenticationException {
@@ -50,11 +46,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         }
     }
 
-    /*
-    successfulAuthentication() - This method is originally present in the parent of the Base class.
-    After overriding, this method will be called after a user logs in successfully.
-     Below, it is generating a String token (JWT) for this user.
-    * */
     @Override
     protected void successfulAuthentication(HttpServletRequest req,
                                             HttpServletResponse res,
